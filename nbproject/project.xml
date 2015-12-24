@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.web.clientproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/clientside-project/1">
+            <name>amida2</name>
+        </data>
+        <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1">
+            <library name="jquery" version="2.1.4">
+                <file localPath="www/js/libs/jquery/jquery.min.js" path="jquery.min.js"/>
+            </library>
+            <library name="underscore.js" version="1.8.3">
+                <file localPath="www/js/libs/underscore.js/underscore-min.js" path="underscore-min.js"/>
+            </library>
+        </libraries>
+    </configuration>
+</project>
