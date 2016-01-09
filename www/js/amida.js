@@ -19,8 +19,35 @@ amida.prototype.generateMap = function(playerNum){
 	this.cellMax.w = (playerNum * 2)-1;
 	this.map = this._mapDataGen(this.cellMax.w, this.cellMax.h);
 	this._baseGen(playerNum);
+	this._branchGen();
 };
-amida.prototype._branchGen = function(w,h){
+amida.prototype._branchGen = function(){
+	var blank = [];
+	_.each(this.map, function(row){
+		var filterdRow = _.filter(row,function(cell){
+			return !cell.base;
+		});
+		blank.push(filterdRow);
+	});
+	var isEven = false;// previous branch exists
+
+	_.each(blank, function(row){
+		var count = 0;
+		_.each(row, function(cell){
+			if( (count%2==0)==isEven ) {
+				++count;
+				return null;
+			}
+			if ( Math.random()*10 < 7  ){
+				cell.branch = true;
+			}else{
+
+			}
+			++count;
+		});
+		isEven = !isEven;
+	});
+	console.log(blank);
 	
 };
 amida.prototype._mapDataGen = function(w,h){
@@ -55,9 +82,7 @@ amida.prototype._colGen = function(col){
 
 	
 };
-amida.prototype._branchGen = function(playerNum){
-	
-};
+
 amida.prototype.fullDraw = function(){
 	var $container = $(this.targetElm);
 	var $tbl = $('<table>');
